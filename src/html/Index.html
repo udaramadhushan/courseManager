@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <style>
+    .navigation-btn {
+      float: right;
+    }
+
+    .wizard-tab {
+      display: none;
+    }
+
+    .active {
+      display: block;
+    }
+
+    li {
+      color: black;
+    }
+
+
+    .templete {
+      display: none;
+    }
+
+    .container {
+
+      border-style: solid;
+      border-width: 40px;
+      border-color: white;
+    }
+
+    .modal {
+      left: 0;
+      right: 0;
+      background-color: #fafafa;
+      padding: 0;
+      max-height: 40%;
+      width: 20%;
+      will-change: top, opacity;
+    }
+
+    .header {
+      padding: 60px;
+      text-align: center;
+      background: #1abc9c;
+      color: white;
+      font-size: 30px;
+    }
+
+    #manage .header {
+
+      background: indigo;
+    }
+
+
+    #course-name-label {
+      background: white;
+      color: black;
+
+    }
+
+    .summery-banner {
+      padding: 60px;
+
+      background: #eecb04;
+
+      color: white;
+
+
+    }
+  </style>
+
+  <div class="row">
+    <div class="col s12 16 offset-12">
+      <ul class="tabs">
+        <li class="tab col s6">
+          <a href="#courseDetails" class="indigo-text text-darken-4">Wizard</a>
+        </li>
+        <li class="tab col s6">
+          <a href="#manage" class="indigo-text text-darken-4">Manage</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col s12" id="courseDetails">
+
+    <h1 class="  header"> COURSE DETAILS</h1>
+    <div class="container z-depth-5">
+
+
+
+      <div class="top-panel">
+        <span class="chip total-percentage #263238 blue-grey darken-4">
+          <label>TOTAL PERCENTAGE :</label>
+          <label id="percentage-label">0%</label>
+        </span>
+
+        <div class="navigation-btn ">
+          <button type="button" class="waves-effect waves-light btn #01579b light-blue darken-4" onclick="nextPrev(-1)"
+            id="prevBtn">Previous</button>
+          <button type="button" class="waves-effect waves-light btn #01579b light-blue darken-4" onclick="nextPrev(1)"
+            id="nextBtn">Next</button>
+          <button type="button" class="waves-effect waves-light btn #64dd17 light-green accent-4"
+            id="submit-button">Submit</button>
+        </div>
+      </div>
+
+
+
+      <div class="row wizard-tab ">
+
+        <div class=" col s12">
+          <h4>Course Name</h4>
+          <p><input type="text" id='course-name' placeholder="Enter course Name"></p>
+        </div>
+      </div>
+
+
+
+      <div class="row wizard-tab ">
+        <div class=" col s12">
+          <h4>Quizes</h4>
+          <button data-target="modal1" class="btn modal-trigger">add quiz</button>
+
+          <ol class="collection quiz-collection">
+          </ol>
+        </div>
+      </div>
+
+
+
+      <div class="row wizard-tab">
+        <div class="col s12 ">
+          <h4>Assignments</h4>
+          <button data-target="modal1" class="btn modal-trigger">add Assignment</button>
+          <ol class="collection assignment-collection">
+          </ol>
+        </div>
+      </div>
+
+
+
+      <div class="row wizard-tab">
+        <div class="col s12 ">
+          <h4>Tutorials</h4>
+          <button data-target="modal1" class="btn modal-trigger">add tutorial</button>
+          <ol class="collection tutorial-collection">
+          </ol>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="row wizard-tab summery">
+        <div class="col s12 ">
+
+          <div class="card-content white-text col s12">
+            <h2 class=" col s12 header summery-banner">SUMMERY</h2>
+
+            <div class="col s12">
+
+              <h6 id="course-name-label" class=" header"></h6>
+            </div>
+
+            <div>
+              <div class="card vertical quiz-card col s4">
+                <span class="card-title  black-text center #00bcd4 cyan col s12">QUIZES</span>
+                <p class="card-content center black-text ">You have no Quizes !</p>
+                <ol class=" card-content collection "></ol>
+
+              </div>
+
+              <div class="card vertical assignment-card col s4">
+                <span class="card-title black-text center #9fa8da indigo lighten-3 col s12 ">ASSIGNMENTS</span>
+                <p class="card-content center black-text">You have no Assignments !</p>
+                <ol class="card-content collection "></ol>
+
+              </div>
+              <div class="card vertical tutorial-card col s4">
+                <span class="card-title black-text center #f06292 pink lighten-2 col s12 ">TUTORIALS</span>
+                <p class="card-content center black-text">You have no tutorials!</p>
+                <ol class="card-content collection"></ol>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal s">
+        <div class="modal-content">
+          <h5>Enter Percentage</h6>
+            <input type="number" value='0'>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat add-item">ADD</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+  </div>
+
+
+  <div class="col s12" id="manage">
+
+    <p class="header"> MANAGE COURSES</p>
+
+    <div class="container  depth-6 ">
+      <div class="input-field col s12">
+        <select id="sheet-select">
+          <option value="" disabled selected>Choose sheet</option>
+          <option value="courses">courses</option>
+          <option value="quizes">Quizes</option>
+          <option value="assignments">Assignments</option>
+          <option value="tutorials">tutorials</option>
+        </select>
+      </div>
+
+      <table id="sheet-table" class="stripped highlight centered">
+        <caption> </caption>
+        <thead>
+
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+  <script>
+    $(document).ready(function () {
+      $('.tabs').tabs();
+      $('.modal').modal();
+      $('select').formSelect();
+      showTab(currentTab);
+      google.script.run.withSuccessHandler(onSucess).manageSheets();
+
+    });
+
+    var currentTab = 0;
+    var percentage = 0;
+
+    //the function that shows the current tab and shows the next, previous and submit buttons
+    var showTab = (n) => {
+
+      var tab = $(".wizard-tab");
+      tab.eq(n).addClass("active");
+
+      (n == 0) ? $("#prevBtn").hide(): $("#prevBtn").show();
+
+      if (n == (tab.length - 1)) {
+        $("#nextBtn").hide();
+        $("#submit-button").show();
+        showSummery();
+      } else {
+        $("#nextBtn").show();
+        $("#submit-button").hide();
+
+      }
+
+    }
+
+    //funtion which is assigned to next and previous buttons
+    var nextPrev = (n) => {
+      var x = $(".wizard-tab");
+      x.eq(currentTab).removeClass('active');
+      currentTab = currentTab + n;
+      showTab(currentTab);
+    }
+
+    //function which is used to empty a card in the summery page
+
+
+
+
+    //fuction which is used to fill a card in the summery page with given items
+    var fillCard = (card, collection) => {
+
+      $values = $(collection).find('.collection-value');
+      $collection = $(card).find('.collection');
+      $paragraph = $(card).find('p');
+      if ($collection.length > 0) {
+        $collection.empty();
+      }
+      if ($values.length > 0) {
+        $paragraph.hide();
+        $collection.show();
+        $values.each(function (index, element) {
+          $collection.append("<li class='collection-item'><a>" + $values.eq(index)
+            .text() + "</a>%</li>")
+        })
+      } else {
+        $paragraph.show();
+        $collection.hide();
+      }
+    }
+
+    //store list items into an array
+    var storeList = (list) => {
+      var list_item;
+      var list_arr = [];
+      list.each(function (index, elelemt) {
+
+          list_item = list.eq(index).text();
+          list_arr.push(list_item);
+
+        }
+
+      )
+      return list_arr;
+
+    }
+
+    //function which will create the summery page
+
+    var showSummery = () => {
+      //grab elements cards in summery page and collections in wizard tabs
+      $courseName = $('#course-name').val();
+      //set 
+      $('#course-name-label').html($courseName);
+      fillCard('.quiz-card', '.quiz-collection');
+      fillCard('.assignment-card', '.assignment-collection');
+      fillCard('.tutorial-card', '.tutorial-collection');
+
+    }
+
+    var calculateTotalPercentage = (percentage) => {
+      $values = $('.collection-value');
+
+      for (i = 0; i < $values.length; i += 1) {
+        percentage = percentage + parseInt($values.eq(i).text());
+      }
+
+      $('#percentage-label').html(percentage + "%");
+
+      if (percentage > 100) {
+
+        $('#percentage-label').css('color', 'red');
+      }
+
+
+    }
+
+
+    $('#submit-button').click(function () {
+
+      if (percentage > 100) {
+
+        M.toast({
+          html: 'Total percentage is over 100'
+        })
+      } else {
+        var name = $('#course-name').val();
+        $quizList = $(".quiz-card").find("a");
+        $assignmentList = $(".assignment-card").find("a");
+        $tutorials = $(".tutorial-card").find("a");
+
+        var quizes = storeList($quizList);
+        var assignments = storeList($assignmentList);
+        var tutorials = storeList($tutorials);
+        var course = {
+          "name": name,
+          "quizes": quizes,
+          "assignments": assignments,
+          "tutorials": tutorials
+        };
+
+        google.script.run.processForm(course);
+
+      }
+
+
+    });
+
+
+    $('.add-item').click(function () {
+
+      var inputValue = parseInt($('.modal input').val());
+
+
+      if (inputValue >= 0) {
+        var $collection = $('.wizard-tab').filter('.active').find('.collection');
+        $collection.append($(
+          "<li class='collection-item'><span class='badge remove-item btn-small'>x</span><span class='collection-value'>" +
+          inputValue + "</span>%</li>"));
+
+        calculateTotalPercentage(percentage);
+
+      }
+
+      $('.remove-item').click(function () {
+        $(this).closest('li').remove();
+        calculateTotalPercentage(percentage);
+      });
+    });
+
+    function onSucess(sheetData) {
+      var datags = sheetData;
+
+
+
+      var fillTable = (tableData, tableName) => {
+
+        $table = $('#sheet-table');
+        $table.find('thead').empty();
+        $table.find('tbody').empty();
+
+        $table.find('caption').html(tableName);
+
+        $table.find('thead').append($("<tr><td>" + tableData[0][0] + "</td><td>" + tableData[0][1] + "</td><td>" +
+          tableData[0][2] + "</td></tr>"));
+        for (i = 1; i < tableData.length; i += 1) {
+
+          $table.find('tbody').append($("<tr><td>" + tableData[i][0] + "</td><td>" + tableData[i][1] +
+            "</td><td>" + tableData[i][2] + "%</td></tr>"));
+        }
+
+        if (tableData[0][2] == null) {
+          $('#sheet-table tr').find('td:eq(2),th:eq(2)').remove();
+
+        }
+
+      }
+
+      $('#sheet-select').on('change', function (e) {
+
+        var value = String(e.target.value);
+        switch (value) {
+          case "courses":
+            fillTable(datags.courses, "COURSES");
+            break;
+
+          case "assignments":
+            fillTable(datags.assignments, "ASSIGNMENTS");
+            break;
+
+          case "tutorials":
+            fillTable(datags.tutorials, "TUTORIALS");
+            break;
+
+          case "quizes":
+            fillTable(datags.quizes, "QUIZES");
+            break;
+
+
+        }
+
+
+      })
+
+
+
+
+
+    }
+  </script>
+</body>
+
+</html>

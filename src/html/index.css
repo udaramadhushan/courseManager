@@ -1,0 +1,48 @@
+.navigation-btn {
+
+    float: right;
+}
+
+
+
+.wizard-tab {
+
+    display: none;
+}
+
+
+.active {
+
+    display: block;
+
+}
+
+li {
+
+    color: black;
+}
+
+
+.templete {
+
+    display: none;
+}
+
+
+.modal {
+
+    left: 0;
+
+    right: 0;
+
+    background-color: #fafafa;
+
+    padding: 0;
+
+    max-height: 40%;
+
+    width: 20%;
+
+    will-change: top, opacity;
+
+}
